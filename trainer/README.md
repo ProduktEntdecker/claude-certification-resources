@@ -2,15 +2,16 @@
 
 > Practice questions written by Florian Steiner for learning. Not affiliated with, endorsed by, or derived from the Anthropic certification exam.
 
-170 scenario-based practice questions for the five domains of the Claude Certified Architect Foundations (CCAR-F) blueprint, plus a trainer page that runs in any browser without installation. Shared with participants of the session "Claude Certification Programme for Partners", Barcelona, 23 September 2026.
+170 scenario-based practice questions for the five domains of the Claude Certified Architect Foundations (CCAR-F) exam guide (link and retrieval date in [README, section 7](../README.md#7-sources)), plus a trainer page that runs in any browser without installation. Shared with participants of the session "Claude Certification Programme for Partners", Barcelona, 23 September 2026.
 
 ## Files
 
 | File | Purpose |
 |---|---|
-| `index.html` | The trainer. Self-contained: no build step, no external scripts, no network calls. |
+| `index.html` | The trainer. Self-contained: no build step, no external scripts, no third-party network calls; when served over HTTP it fetches the local `questions.json`. |
 | `questions.json` | The question file. |
 | `schema.json` | JSON Schema (draft 2020-12) for `questions.json`. |
+| `validate.py` | Checks `questions.json` against the schema and the rules a schema cannot express. |
 | `PROVENANCE.md` | Where the questions come from, what was excluded, and why. |
 
 ## How to use
@@ -86,12 +87,14 @@ Keyboard: `1` to `4` or `A` to `D` choose an answer, `Enter` checks or moves on,
 | `tags` | Task number and name, anti-pattern name where relevant, answer format. |
 | `source` | Always `self-written by Florian Steiner`. |
 
-Validate a modified file:
+Validate a modified file (the schema check needs `pip install jsonschema`, the other rules run without it):
 
 ```bash
-pip install jsonschema
-python3 -c "import json, jsonschema; jsonschema.validate(json.load(open('questions.json')), json.load(open('schema.json'))); print('valid')"
+cd trainer
+python3 validate.py
 ```
+
+Besides the schema, `validate.py` checks unique ids, unique option keys, that every answer key is one of the options, the answer count per type (`mc` exactly one, `mr` at least two), and that the copy embedded in `index.html` matches `questions.json`.
 
 ## Disclaimer
 

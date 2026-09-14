@@ -5,7 +5,14 @@
   "description": "Self-written practice questions by Florian Steiner. Not affiliated with, endorsed by, or derived from the Anthropic certification exam.",
   "type": "object",
   "additionalProperties": false,
-  "required": ["version", "generated", "certification", "disclaimer", "license_note", "questions"],
+  "required": [
+    "version",
+    "generated",
+    "certification",
+    "disclaimer",
+    "license_note",
+    "questions"
+  ],
   "properties": {
     "version": {
       "type": "string",
@@ -47,7 +54,10 @@
     "option": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["key", "text"],
+      "required": [
+        "key",
+        "text"
+      ],
       "properties": {
         "key": {
           "$ref": "#/$defs/key"
@@ -60,7 +70,18 @@
     "question": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "domain", "scenario", "question", "options", "answer", "explanation", "difficulty", "tags", "source"],
+      "required": [
+        "id",
+        "domain",
+        "scenario",
+        "question",
+        "options",
+        "answer",
+        "explanation",
+        "difficulty",
+        "tags",
+        "source"
+      ],
       "properties": {
         "id": {
           "type": "string",
@@ -93,7 +114,7 @@
         },
         "answer": {
           "type": "array",
-          "description": "Keys of all correct options. One key for single choice, two or more for multiple response (exact match scoring).",
+          "description": "Keys of all correct options: exactly one for single choice (id contains -mc-), two or more for multiple response (id contains -mr-), exact match scoring. Unique option keys and answer keys among the options are checked by validate.py.",
           "minItems": 1,
           "uniqueItems": true,
           "items": {
@@ -106,7 +127,11 @@
         "difficulty": {
           "type": "string",
           "description": "Coarse heuristic, not calibrated: multiple-response items are hard, single-choice items medium.",
-          "enum": ["easy", "medium", "hard"]
+          "enum": [
+            "easy",
+            "medium",
+            "hard"
+          ]
         },
         "tags": {
           "type": "array",
@@ -118,7 +143,47 @@
         "source": {
           "const": "self-written by Florian Steiner"
         }
-      }
+      },
+      "allOf": [
+        {
+          "if": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "pattern": "-mc-"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "answer": {
+                "maxItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "pattern": "-mr-"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "answer": {
+                "minItems": 2
+              }
+            }
+          }
+        }
+      ]
     }
   }
 }

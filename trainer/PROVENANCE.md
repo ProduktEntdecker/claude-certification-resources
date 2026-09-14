@@ -21,7 +21,7 @@ Check: 269 - 83 - 13 - 3 = 170.
 ## Sources inspected
 
 - The author's private question banks and their change history.
-- The official exam guides for Claude Certified Architect: Foundations (CCAR-F), Claude Certified Architect: Professional (CCAR-P) and Claude Certified Associate: Foundations (CCAO-F), which contain the official sample questions.
+- The official exam guides for Claude Certified Architect: Foundations (CCAR-F), Claude Certified Architect: Professional (CCAR-P) and Claude Certified Associate: Foundations (CCAO-F), which contain the official sample questions. Links and retrieval date: [README, section 7](../README.md#7-sources).
 - Nothing from private notes, training logs, participant data or course material is included in the output.
 
 ## Method

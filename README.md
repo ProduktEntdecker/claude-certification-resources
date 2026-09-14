@@ -1,6 +1,6 @@
 # Claude Certification Resources
 
-This repository was handed out at the session **"Claude Certification Programme for Partners"**, presented by Florian Steiner at the Claude Community House, Barcelona, on 23 September 2026. It collects the public, official facts about Anthropic's Claude certifications and the Claude Partner Network (CPN), plus links to preparation material, so that Claude Community Ambassadors, partners, and consultancies have one place to start from.
+This repository accompanies the session **"Claude Certification Programme for Partners"** by Florian Steiner at the Claude Community House, Barcelona, on 23 September 2026. It collects the public, official facts about Anthropic's Claude certifications and the Claude Partner Network (CPN), plus links to preparation material, so that Claude Community Ambassadors, partners, and consultancies have one place to start from.
 
 > **Disclaimer.** This is an independent, community-maintained resource. It is **not affiliated with, endorsed by, or reviewed by Anthropic**. Fees, eligibility rules, exam formats, and program details change; always confirm the current facts on the official pages linked in this README (section 7) before you register, study, or advise a client. Everything here reflects the state of the linked pages as retrieved on 14 September 2026.
 
@@ -20,8 +20,8 @@ Eligibility comes first, because it determines whether the rest of this document
 **What this means in practice:**
 
 - **If you work at a company that is already a Claude Partner Network member:** ask your Academy admin to add you with your company email, then register for an exam through the Anthropic Partner Academy.
-- **If you are a freelancer or work at a company that is not yet a CPN member:** you cannot register on your own. Your organization needs to join the Claude Partner Network first (membership is free and open to any organization that brings Claude to market), and you then register with that company's email domain. Apply here: **https://claude.com/form/cpn-partner-application**. Existing partners manage their account through the Partner Hub: **http://partnerhub.anthropic.com/**. (Source: https://claude.com/partners, and https://www.anthropic.com/news/claude-partner-network, published 12 March 2026, both retrieved 14 September 2026.)
-- A specific, separate policy for solo freelancers who have no company domain at all is **not described** on the FAQ page above; if this applies to you, ask via the CPN application form rather than assuming.
+- **If your organization is not yet a CPN member:** it needs to join the Claude Partner Network first (membership is free and open to any organization that brings Claude to market), and you then register with its company email domain. Apply here: **https://claude.com/form/cpn-partner-application**. Existing partners manage their account through the Partner Hub: **https://partnerhub.anthropic.com/**. (Source: https://claude.com/partners, and https://www.anthropic.com/news/claude-partner-network, published 12 March 2026, both retrieved 14 September 2026.)
+- **Solo freelancers:** the FAQ above describes no separate path for them. If this applies to you, ask via the CPN application form rather than assuming either way.
 
 ---
 
@@ -60,7 +60,7 @@ The landing page for CCAR-F is https://anthropic-partners.skilljar.com/claude-ce
 
 ## 4. The Claude Partner Network in short
 
-- **How to join:** apply at https://claude.com/form/cpn-partner-application. Existing partners use the Partner Hub at http://partnerhub.anthropic.com/. Membership is free, and any organization that brings Claude to market is eligible to participate. (Source: https://www.anthropic.com/news/claude-partner-network, published 12 March 2026)
+- **How to join:** apply at https://claude.com/form/cpn-partner-application. Existing partners use the Partner Hub at https://partnerhub.anthropic.com/. Membership is free, and any organization that brings Claude to market is eligible to participate. (Source: https://www.anthropic.com/news/claude-partner-network, published 12 March 2026)
 - **Entry tier:** "new applicants start at Registered, the program's entry level, with a minimum commitment to 10 certified practitioners." (Source: https://www.anthropic.com/news/services-track-partner-hub, published 3 June 2026)
 - **Tiers** (certified practitioners, joint customers in production trailing 12 months, public customer stories):
 
@@ -140,7 +140,7 @@ All web sources below were retrieved on 14 September 2026 unless a different ret
 | "Services track and Partner Hub" (published 3 June 2026) | https://www.anthropic.com/news/services-track-partner-hub |
 | Claude Partners overview | https://claude.com/partners |
 | CPN application form | https://claude.com/form/cpn-partner-application |
-| Partner Hub (existing partners) | http://partnerhub.anthropic.com/ |
+| Partner Hub (existing partners) | https://partnerhub.anthropic.com/ |
 | Claude Partner Network learning path | https://anthropic.skilljar.com/page/claude-partner-network-learning-path |
 | Anthropic Academy catalog | https://anthropic.skilljar.com/ |
 | Udemy course pages (7 courses, table in section 5) | see individual URLs in section 5 |
