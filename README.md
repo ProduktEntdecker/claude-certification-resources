@@ -115,7 +115,7 @@ The landing page for CCAR-F is https://anthropic-partners.skilljar.com/claude-ce
 
 ## 6. Practice trainer
 
-This repository also includes a small, self-contained practice trainer in the [`trainer/`](trainer/) folder (`index.html` plus `questions.json`). It was written by Florian Steiner as a study aid and **is not official Anthropic material and does not contain real exam questions**. Open `trainer/index.html` in a browser to use it; treat every question in it as a practice item only, not a preview of what will be on your actual exam.
+This repository also includes a small, self-contained practice trainer in the [`trainer/`](trainer/) folder (`index.html` plus `questions.json` with 170 practice questions for Architect: Foundations). It was written by Florian Steiner as a study aid and **is not official Anthropic material and does not contain real exam questions**. Open `trainer/index.html` in a browser to use it; treat every question in it as a practice item only, not a preview of what will be on your actual exam.
 
 ---
 

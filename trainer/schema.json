@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:florian-steiner:ccar-f-practice-trainer:questions:1",
+  "title": "CCAR-F practice question file",
+  "description": "Self-written practice questions by Florian Steiner. Not affiliated with, endorsed by, or derived from the Anthropic certification exam.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "generated", "certification", "disclaimer", "license_note", "questions"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "generated": {
+      "type": "string",
+      "description": "ISO 8601 calendar date (YYYY-MM-DD).",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
+    "certification": {
+      "const": "CCAR-F"
+    },
+    "disclaimer": {
+      "$ref": "#/$defs/text"
+    },
+    "license_note": {
+      "$ref": "#/$defs/text"
+    },
+    "questions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/question"
+      }
+    }
+  },
+  "$defs": {
+    "text": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Non-empty text without the em-dash character (U+2014).",
+      "pattern": "^[^\\u2014]*$"
+    },
+    "key": {
+      "type": "string",
+      "pattern": "^[A-F]$"
+    },
+    "option": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["key", "text"],
+      "properties": {
+        "key": {
+          "$ref": "#/$defs/key"
+        },
+        "text": {
+          "$ref": "#/$defs/text"
+        }
+      }
+    },
+    "question": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "domain", "scenario", "question", "options", "answer", "explanation", "difficulty", "tags", "source"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Stable id from the author's source bank: d<domain>-<mc|mr>-<number>. mc = single choice, mr = multiple response.",
+          "pattern": "^d[1-5]-(mc|mr)-[0-9]{3}$"
+        },
+        "domain": {
+          "type": "string",
+          "enum": [
+            "Agentic Architecture & Orchestration",
+            "Tool Design & MCP Integration",
+            "Claude Code Configuration & Workflows",
+            "Prompt Engineering & Structured Output",
+            "Context Management & Reliability"
+          ]
+        },
+        "scenario": {
+          "$ref": "#/$defs/text"
+        },
+        "question": {
+          "$ref": "#/$defs/text"
+        },
+        "options": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 6,
+          "items": {
+            "$ref": "#/$defs/option"
+          }
+        },
+        "answer": {
+          "type": "array",
+          "description": "Keys of all correct options. One key for single choice, two or more for multiple response (exact match scoring).",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/key"
+          }
+        },
+        "explanation": {
+          "$ref": "#/$defs/text"
+        },
+        "difficulty": {
+          "type": "string",
+          "description": "Coarse heuristic, not calibrated: multiple-response items are hard, single-choice items medium.",
+          "enum": ["easy", "medium", "hard"]
+        },
+        "tags": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/text"
+          }
+        },
+        "source": {
+          "const": "self-written by Florian Steiner"
+        }
+      }
+    }
+  }
+}
