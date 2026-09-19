@@ -53,7 +53,8 @@ legend { font-weight: 600; margin-bottom: .25rem; padding: 0; }
 .check label { cursor: pointer; }
 .field { margin: .75rem 0; }
 .field label { display: block; font-weight: 600; margin-bottom: .375rem; }
-select, input[type="number"] { font: inherit; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: .5rem; padding: .5rem .625rem; min-height: 2.75rem; width: 100%; max-width: 16rem; }
+select, input[type="number"], input[type="text"] { font: inherit; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: .5rem; padding: .5rem .625rem; min-height: 2.75rem; width: 100%; max-width: 16rem; }
+input#presenter-ids { max-width: 28rem; }
 .row-actions { display: flex; gap: 1.25rem; }
 .btn-link { font: inherit; background: none; border: 0; padding: .25rem 0; color: var(--accent-hover); text-decoration: underline; cursor: pointer; min-height: 2.75rem; }
 .btn { font: inherit; font-weight: 600; display: inline-flex; align-items: center; justify-content: center; min-height: 2.75rem; padding: .5rem 1.125rem; border-radius: .625rem; border: 1px solid transparent; cursor: pointer; text-align: center; }
@@ -191,6 +192,13 @@ kbd { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fon
         <div class="check"><input type="checkbox" id="shuffle-options" checked><label for="shuffle-options">Shuffle answer options</label></div>
         <p class="form-error" id="practice-error" role="alert"></p>
         <div class="actions"><button type="button" class="btn btn-primary" id="start-practice">Start practice</button></div>
+        <div class="field">
+          <label for="presenter-ids">Presenter mode: question ids</label>
+          <input type="text" id="presenter-ids" placeholder="d1-mc-010, d1-mc-006, d2-mc-009" autocomplete="off">
+          <p class="muted small">Runs exactly these questions, in the order you type them, without shuffling. For walking through known questions in front of a room.</p>
+        </div>
+        <p class="form-error" id="presenter-error" role="alert"></p>
+        <div class="actions"><button type="button" class="btn btn-secondary" id="start-presenter">Start presenter run</button></div>
       </section>
 
       <section class="card" aria-labelledby="mock-title">
@@ -599,12 +607,29 @@ kbd { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fon
     renderQuestion();
     showView("quiz", true);
   }
-  function startPracticeWith(ids) {
-    var pool = ids.map(function (id) { return byId[id]; }).filter(Boolean);
+  function startPracticeWith(ids, keepOrder) {
+    var pool = ids.filter(hasQuestion).map(function (id) { return byId[id]; });
     if (!pool.length) return;
-    session = newSession("practice", shuffle(pool), progress.settings.shuffleOptions !== false);
+    session = newSession("practice", keepOrder ? pool : shuffle(pool), progress.settings.shuffleOptions !== false);
     renderQuestion();
     showView("quiz", true);
+  }
+  function hasQuestion(id) {
+    return Object.prototype.hasOwnProperty.call(byId, id);
+  }
+  function parseIds(raw) {
+    return raw.split(/[\s,;]+/).map(function (s) { return s.trim(); }).filter(Boolean);
+  }
+  function startPresenter() {
+    var err = $("presenter-error"), ids = parseIds($("presenter-ids").value);
+    err.textContent = "";
+    if (!ids.length) { err.textContent = "Enter at least one question id, for example d1-mc-010."; return; }
+    var unknown = ids.filter(function (id) { return !hasQuestion(id); });
+    if (unknown.length) {
+      err.textContent = "Unknown id: " + unknown.join(", ") + ". Ids look like d1-mc-010.";
+      return;
+    }
+    startPracticeWith(ids, true);
   }
   function pickBalanced(n) {
     var pools = {}, weights = domains.map(function (d) { return DOMAIN_WEIGHTS[d] || 0; });
@@ -1101,6 +1126,8 @@ kbd { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fon
     });
     $("btn-review-jump").addEventListener("click", function () { var h = $("review-title"); h.scrollIntoView(); h.focus(); });
     $("btn-practice-wrong").addEventListener("click", function () { startPracticeWith(lastWrongIds); });
+    $("start-presenter").addEventListener("click", startPresenter);
+    $("presenter-ids").addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); startPresenter(); } });
     $("btn-home").addEventListener("click", function () { renderHome(); showView("home", true); });
     $("modal-root").addEventListener("click", function (e) { if (e.target === $("modal-root") && modalCancel) modalCancel(); });
     document.addEventListener("keydown", onKey);

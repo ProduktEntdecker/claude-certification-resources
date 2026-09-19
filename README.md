@@ -4,7 +4,7 @@ This repository accompanies the session **"Claude Certification Programme for Pa
 
 > **Disclaimer.** This is an independent, community-maintained resource. It is **not affiliated with, endorsed by, or reviewed by Anthropic**. Fees, eligibility rules, exam formats, and program details change; always confirm the current facts on the official pages linked in this README (section 7) before you register, study, or advise a client. Everything here reflects the state of the linked pages as retrieved on 14 September 2026.
 
-The session agenda with timeline is in [`docs/agenda.html`](docs/agenda.html) (PDF: [`docs/agenda.pdf`](docs/agenda.pdf)).
+The session agenda with timeline is in [`docs/agenda.html`](docs/agenda.html) (PDF: [`docs/agenda.pdf`](docs/agenda.pdf)). The facilitator run of show for the live quiz block is in [`docs/live-quiz.md`](docs/live-quiz.md).
 
 ---
 
