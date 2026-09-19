@@ -8,7 +8,7 @@ Goal: show what the exam actually asks, without reproducing exam content. Offici
 
 - [ ] Download the exam guide PDFs (links in README section 2) and keep local copies. The venue network is unknown.
 - [ ] Open the CCAR-F guide at its sample questions section in one window.
-- [ ] Open `trainer/index.html` in a second window, practice mode.
+- [ ] Open `trainer/index.html` in a second window and paste the three ids into Presenter mode, so the run is one click away on stage.
 - [ ] Keep README section 1 (who can take the exams) at hand, the question comes up every time.
 
 ## Part 1: two official sample questions, 6 minutes
@@ -21,7 +21,12 @@ Show them from the guide PDF on screen.
 
 ## Part 2: three questions from the practice trainer, 7 minutes
 
-Search these ids in the trainer (practice mode) and run them the same way:
+Paste these ids into **Presenter mode** on the trainer home screen and press Start presenter run. They run in exactly this order, without shuffling:
+
+```text
+d1-mc-010, d1-mc-006, d2-mc-009
+```
+
 
 | Id | What it tests |
 |---|---|
@@ -34,7 +39,7 @@ Say plainly what these are: practice questions written by the host, close in sha
 ## Part 3: the difference, 2 minutes
 
 - The trainer has 170 practice questions and no official material. Provenance is documented in `trainer/PROVENANCE.md`.
-- Eligibility: the exams are open to people at Claude Partner Network organisations with a company email address, membership is free.
+- Eligibility: the exams are open to people at Claude Partner Network organisations with a company email address, membership is free. (Sources: Anthropic Partner Academy, Certification FAQ, https://anthropic-partners.skilljar.com/page/faq-certifications, and https://claude.com/partners, both retrieved 14 September 2026. Full wording in README section 1.)
 - Where to start: README sections 1 and 5.
 
 ## If something fails
