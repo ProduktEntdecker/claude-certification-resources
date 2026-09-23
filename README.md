@@ -4,7 +4,7 @@ This repository accompanies the session **"Claude Certification Programme for Pa
 
 > **Disclaimer.** This is an independent, community-maintained resource. It is **not affiliated with, endorsed by, or reviewed by Anthropic**. Fees, eligibility rules, exam formats, and program details change; always confirm the current facts on the official pages linked in this README (section 7) before you register, study, or advise a client. Everything here reflects the state of the linked pages as retrieved on 14 September 2026.
 
-The session agenda with timeline is in [`docs/agenda.html`](docs/agenda.html) (PDF: [`docs/agenda.pdf`](docs/agenda.pdf)). The facilitator run of show for the live quiz block is in [`docs/live-quiz.md`](docs/live-quiz.md).
+The slides from the session are in [`docs/slides.pdf`](docs/slides.pdf). The session agenda with timeline is in [`docs/agenda.html`](docs/agenda.html) (PDF: [`docs/agenda.pdf`](docs/agenda.pdf)). The facilitator run of show for the live quiz block is in [`docs/live-quiz.md`](docs/live-quiz.md).
 
 ---
 
@@ -115,7 +115,7 @@ The landing page for CCAR-F is https://anthropic-partners.skilljar.com/claude-ce
 
 ## 6. Practice trainer
 
-This repository also includes a small, self-contained practice trainer in the [`trainer/`](trainer/) folder (`index.html` plus `questions.json` with 170 practice questions for Architect: Foundations). It was written by Florian Steiner as a study aid and **is not official Anthropic material and does not contain real exam questions**. Open `trainer/index.html` in a browser to use it; treat every question in it as a practice item only, not a preview of what will be on your actual exam.
+This repository also includes a small, self-contained practice trainer in the [`trainer/`](trainer/) folder (`index.html` plus `questions.json` with 170 practice questions for Architect: Foundations). It was written by Florian Steiner as a study aid and **is not official Anthropic material and does not contain real exam questions**. Use it online at https://produktentdecker.github.io/claude-certification-resources/trainer/, or download the repository and open `trainer/index.html` in any browser, which also works offline; treat every question in it as a practice item only, not a preview of what will be on your actual exam.
 
 ---
 
